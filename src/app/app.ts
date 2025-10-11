@@ -7,17 +7,17 @@ declare const DD_RUM: any;
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css'] // corregido: era "styleUrl"
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('Manuel');
 
-  constructor() { } // corregido: era "construtor"
+  constructor() { }
 
   // log informativo
   logInfo(message: string) {
     if (typeof DD_RUM !== 'undefined') {
-      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' }); // faltaba coma
+      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' });
     } else {
       console.warn('DD_RUM no está definido', message);
     }
@@ -26,7 +26,7 @@ export class App {
   // log de error
   logError(message: string, error?: any) {
     if (typeof DD_RUM !== 'undefined') {
-      DD_RUM.addError(message, { error, level: 'error', module: 'AppComponent' }); // corregido: se usaba MessageChannel en lugar de message
+      DD_RUM.addError(message, { error, level: 'error', module: 'AppComponent' });
     } else {
       console.warn('DD_RUM no está definido', message, error);
     }
@@ -37,10 +37,10 @@ export class App {
       if (typeof DD_RUM !== 'undefined') {
         DD_RUM.addAction('Aplicación Angular iniciada correctamente');
       }
-    }, 1000); // espera 1 segundo
+    }, 1000);
   }
 
-  // simulación de error
+
   simulateError() {
     try {
       throw new Error('Error simulado en la app');
