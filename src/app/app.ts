@@ -1,51 +1,16 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-declare const DD_RUM: any;
+// Asumo que este es el archivo donde está la clase AppComponent
+import { Component } from '@angular/core';
+// ... otras importaciones necesarias, como CommonModule si es standalone
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  // ... (otros metadatos)
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  // ...
 })
-export class App {
-  protected readonly title = signal('Manuel');
+export class AppComponent {
+  // Variable de control
+  mostrarBienvenida: boolean = true;
 
-  constructor() { }
-
-  // log informativo
-  logInfo(message: string) {
-    if (typeof DD_RUM !== 'undefined') {
-      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' });
-    } else {
-      console.warn('DD_RUM no está definido', message);
-    }
-  }
-
-  // log de error
-  logError(message: string, error?: any) {
-    if (typeof DD_RUM !== 'undefined') {
-      DD_RUM.addError(message, { error, level: 'error', module: 'AppComponent' });
-    } else {
-      console.warn('DD_RUM no está definido', message, error);
-    }
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      if (typeof DD_RUM !== 'undefined') {
-        DD_RUM.addAction('Aplicación Angular iniciada correctamente');
-      }
-    }, 1000);
-  }
-
-
-  simulateError() {
-    try {
-      throw new Error('Error simulado en la app');
-    } catch (e) {
-      this.logError('Se ha producido un error simulado', e);
-    }
-  }
+  // Otros métodos o propiedades de tu componente
 }
