@@ -1,23 +1,51 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <-- REPARACIÓN CLAVE 1: Para usar *ngIf
-import { CatalogoComponent } from './catalogo/catalogo.component'; // <-- REPARACIÓN CLAVE 2: Para usar <app-catalogo>
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
-// Si tu componente no es standalone, ignora 'standalone: true'
-// y asegúrate de que estas importaciones están en tu 'app.module.ts'
+declare const DD_RUM: any;
+
 @Component({
   selector: 'app-root',
-  standalone: true, // Si usas componentes aislados
-  imports: [
-    CommonModule,     // ¡Añade esto para que *ngIf funcione!
-    CatalogoComponent, // ¡Añade esto para que <app-catalogo> funcione!
-    // ... otros módulos que ya tuvieras (RouterOutlet, etc.)
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css']
+  styleUrls: ['./app.css'] // corregido: era "styleUrl"
 })
-export class AppComponent {
-  // Asegúrate de que esta variable está declarada
-  mostrarBienvenida: boolean = true;
+export class App {
+  protected readonly title = signal('Manuel');
 
-  // ... otros métodos y propiedades que tenías
+  constructor() { } // corregido: era "construtor"
+
+  // log informativo
+  logInfo(message: string) {
+    if (typeof DD_RUM !== 'undefined') {
+      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' }); // faltaba coma
+    } else {
+      console.warn('DD_RUM no está definido', message);
+    }
+  }
+
+  // log de error
+  logError(message: string, error?: any) {
+    if (typeof DD_RUM !== 'undefined') {
+      DD_RUM.addError(message, { error, level: 'error', module: 'AppComponent' }); // corregido: se usaba MessageChannel en lugar de message
+    } else {
+      console.warn('DD_RUM no está definido', message, error);
+    }
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if (typeof DD_RUM !== 'undefined') {
+        DD_RUM.addAction('Aplicación Angular iniciada correctamente');
+      }
+    }, 1000); // espera 1 segundo
+  }
+
+  // simulación de error
+  simulateError() {
+    try {
+      throw new Error('Error simulado en la app');
+    } catch (e) {
+      this.logError('Se ha producido un error simulado', e);
+    }
+  }
 }
