@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">NOHA ESTAMPADOS</a>
+    </div>
+</nav>
+
+<main class="container">
+    <section id="inicio">
+        <h1 class="display-5 fw-bold">BIENVENIDO A NOHA ESTAMPADOS</h1>
+        <p class="lead">Tu tienda de estampados personalizados — camisas, hoodies y más.</p>
+        <div>
+            <button id="btnExplorar" class="btn btn-primary btn-lg">Explorar catálogo</button>
+        </div>
+    </section>
+
+    <section id="catalogo" class="hidden">
+        <h2 class="mb-4 text-center">Nuestras camisetas</h2>
+        <div id="productosRow" class="row g-4"></div>
+    </section>
+</main>
+
+<!-- Modal de producto -->
+<div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalTitle" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImg" src="" alt="" class="img-fluid mb-3"
+                    style="width:100%; height:300px; object-fit:cover;">
+                <p id="modalPrice" class="price"></p>
+                <label for="tallaSelect" class="form-label">Selecciona talla</label>
+                <select id="tallaSelect" class="form-select mb-3"></select>
+                <div class="d-flex gap-2">
+                    <button id="addToCart" class="btn btn-success w-100">Añadir al carrito</button>
+                    <button class="btn btn-outline-secondary w-100" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
