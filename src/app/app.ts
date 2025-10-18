@@ -7,12 +7,12 @@ declare const DD_RUM: any;
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrls: ['./app.css'] // corregido: era "styleUrl"
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('Manuel');
 
-  constructor() { } // corregido: era "construtor"
+  constructor() { }
 
   // log informativo
   logInfo(message: string) {
