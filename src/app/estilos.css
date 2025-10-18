@@ -8,7 +8,7 @@ body {
   color: #333;
 }
 
-/* Capa semitransparente para mejorar contraste */
+
 body::before {
   content: "";
   position: fixed;
@@ -20,7 +20,7 @@ body::before {
   z-index: -1;
 }
 
-/* Sección principal con animación */
+/* Animación de entrada */
 section {
   animation: fadeIn 1.5s ease-in;
 }
