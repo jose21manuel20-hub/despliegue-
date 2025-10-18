@@ -17,7 +17,7 @@ export class App {
   // log informativo
   logInfo(message: string) {
     if (typeof DD_RUM !== 'undefined') {
-      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' }); // faltaba coma
+      DD_RUM.addAction(message, { level: 'info', module: 'AppComponent' });
     } else {
       console.warn('DD_RUM no está definido', message);
     }
