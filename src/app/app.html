@@ -2,45 +2,130 @@
 <html lang="es">
 
 <head>
-  <link rel="stylesheet" href="estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>Noha Estampados</title>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f9fa, #e0f7fa);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 1.1em;
+    }
+
+    .btn-explorar {
+      background-color: #ff6f00;
+      color: white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn-explorar:hover {
+      background-color: #ff8f00;
+      transform: scale(1.05);
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      width: 260px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      border-radius: 15px 15px 0 0;
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 
 <body>
 
-  <main>
+  <h1>BIENVENIDO A NOHA ESTAMPADOS</h1>
+  <p>Tu tienda de estampados personalizados</p>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">NOHA ESTAMPADOS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          </ul>
-        </div>
+  <button class="btn btn-explorar">Explorar productos</button>
+
+  <div class="productos mt-5">
+
+    <div class="card">
+      <img src="imgcamiseta1.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta XL Blanca</h5>
+        <p class="card-text">Diseño exclusivo #001</p>
       </div>
-    </nav>
+    </div>
 
+    <div class="card">
+      <img src="imgcamiseta2.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Negra Logo</h5>
+        <p class="card-text">Edición especial #002</p>
+      </div>
+    </div>
 
-    <section class="d-flex flex-column justify-content-center align-items-center text-center" style="height: 80vh;">
-      <h1 style="color:black;" class="fw-bold mb-3">BIENVENIDO A NOHA ESTAMPADOS</h1>
-      <p style="color:rgb(255, 0, 0); font-size: 26px;" class="mb-4">
-        Tu tienda de estampados personalizados</p>
+    <div class="card">
+      <img src="imgcamiseta3.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Blanca Estampado Azul</h5>
+        <p class="card-text">Colección urbana #003</p>
+      </div>
+    </div>
 
-      <button class="btn-explorar">Explorar</button>
-    </section>
-  </main>
+    <div class="card">
+      <img src="imgcamiseta4.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Roja Vintage</h5>
+        <p class="card-text">Edición limitada #004</p>
+      </div>
+    </div>
 
+    <div class="card">
+      <img src="imgcamiseta5.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Verde Street</h5>
+        <p class="card-text">Diseño urbano #005</p>
+      </div>
+    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="card">
+      <img src="imgcamiseta6.jpg" alt="Camiseta personalizada">
+      <div class="card-body">
+        <h5 class="card-title">Camiseta Azul Classic</h5>
+        <p class="card-text">Modelo clásico #006</p>
+      </div>
+    </div>
 
+  </div>
 </body>
 
 </html>
