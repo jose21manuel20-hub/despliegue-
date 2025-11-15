@@ -15,6 +15,35 @@
       position: relative;
     }
 
+    /* 📱 Celulares */
+    @media (max-width: 600px) {
+      .productos {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;
+      }
+
+      .carrito-panel {
+        right: 10px;
+        width: 90%;
+      }
+
+      body {
+        padding: 20px;
+      }
+    }
+
+    /* 💻 Tablets */
+    @media (min-width: 601px) and (max-width: 900px) {
+      .card {
+        width: 45%;
+      }
+    }
+
+
     h1 {
       font-weight: 800;
       color: #111;
