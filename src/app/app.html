@@ -122,50 +122,6 @@
 
     </div>
     <footer> <small>&copy; 2024 DevJobs. Todos los derechos reservados.</small> </footer>
-    <script>
-        const carritoIcono = document.getElementById('carritoIcono');
-        const carritoPanel = document.getElementById('carritoPanel');
-        const botonesAgregar = document.querySelectorAll('.agregar-carrito');
-
-        let carrito = [];
-
-        carritoIcono.addEventListener('click', () => {
-            carritoPanel.style.display =
-                carritoPanel.style.display === 'none' || carritoPanel.style.display === ''
-                    ? 'block'
-                    : 'none';
-        });
-
-        botonesAgregar.forEach((boton) => {
-            boton.addEventListener('click', () => {
-                const card = boton.closest('.card');
-                const nombre = card.querySelector('.card-title').innerText;
-                const precio = card.querySelector('.precio').innerText;
-
-                carrito.push({ nombre, precio });
-                mostrarCarrito();
-            });
-        });
-
-        function mostrarCarrito() {
-            carritoPanel.innerHTML = `<h5><i class="bi bi-cart-check"></i> Tu carrito</h5>`;
-
-            if (carrito.length === 0) {
-                carritoPanel.innerHTML += `<p class="text-muted mt-2">Tu carrito está vacío.</p>`;
-                return;
-            }
-
-            carrito.forEach((item) => {
-                carritoPanel.innerHTML += `
-        <div class="d-flex justify-content-between align-items-center border-bottom py-1">
-          <span>${item.nombre}</span>
-          <span>${item.precio}</span>
-        </div>
-      `;
-            });
-        }
-    </script>
-
 </body>
 
 </html>
