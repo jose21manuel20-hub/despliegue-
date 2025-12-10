@@ -34,6 +34,9 @@
         <h5 class="card-title">Saco XL</h5>
         <p class="card-text">Diseño exclusivo #001</p>
         <p class="precio">$75.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -43,6 +46,9 @@
         <h5 class="card-title">Camiseta Roja XL</h5>
         <p class="card-text">Edición especial #002</p>
         <p class="precio">$42.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -52,6 +58,9 @@
         <h5 class="card-title">Camiseta Blanca Estampado</h5>
         <p class="card-text">Colección urbana #003</p>
         <p class="precio">$42.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -61,6 +70,9 @@
         <h5 class="card-title">Camiseta Talla XL</h5>
         <p class="card-text">Edición limitada #004</p>
         <p class="precio">$42.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -70,6 +82,9 @@
         <h5 class="card-title">Camiseta Roja XL</h5>
         <p class="card-text">Diseño urbano #005</p>
         <p class="precio">$65.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -79,6 +94,9 @@
         <h5 class="card-title">Camiseta Blanca XL</h5>
         <p class="card-text">Modelo clásico #006</p>
         <p class="precio">$42.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -90,6 +108,9 @@
         <h5 class="card-title">Camiseta Blanca K-12</h5>
         <p class="card-text">Diseño exclusivo #007</p>
         <p class="precio">$55.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -99,7 +120,11 @@
         <h5 class="card-title">Camiseta Negra León</h5>
         <p class="card-text">Edición artística #008</p>
         <p class="precio">$68.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
+
     </div>
 
     <div class="card">
@@ -108,6 +133,9 @@
         <h5 class="card-title">Camiseta Gris Rick and Morty</h5>
         <p class="card-text">Colección animada #009</p>
         <p class="precio">$62.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -117,6 +145,9 @@
         <h5 class="card-title">Camiseta Blanca Música</h5>
         <p class="card-text">Estilo minimalista #010</p>
         <p class="precio">$50.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
       </div>
     </div>
 
@@ -126,6 +157,10 @@
         <h5 class="card-title">Camiseta Negra León Blanco</h5>
         <p class="card-text">Edición especial #011</p>
         <p class="precio">$45.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
+
       </div>
     </div>
 
@@ -135,6 +170,10 @@
         <h5 class="card-title">Camiseta Negra Kith x Nike</h5>
         <p class="card-text">Edición especial #012</p>
         <p class="precio">$50.000</p>
+        <button class="btn btn-dark w-100 mt-2 agregar-carrito">
+          <i class="bi bi-cart-plus"></i> Agregar al carrito
+        </button>
+
       </div>
     </div>
 
@@ -149,14 +188,49 @@
   </footer>
 
   <script>
-    // Mostrar / ocultar panel
     const carritoIcono = document.getElementById('carritoIcono');
     const carritoPanel = document.getElementById('carritoPanel');
+    const botonesAgregar = document.querySelectorAll('.agregar-carrito');
+
+    let carrito = [];
 
     carritoIcono.addEventListener('click', () => {
-      carritoPanel.style.display = carritoPanel.style.display === 'none' || carritoPanel.style.display === '' ? 'block' : 'none';
+      carritoPanel.style.display =
+        carritoPanel.style.display === 'none' || carritoPanel.style.display === ''
+          ? 'block'
+          : 'none';
     });
+
+    botonesAgregar.forEach((boton) => {
+      boton.addEventListener('click', () => {
+        const card = boton.closest('.card');
+        const nombre = card.querySelector('.card-title').innerText;
+        const precio = card.querySelector('.precio').innerText;
+
+        carrito.push({ nombre, precio });
+        mostrarCarrito();
+      });
+    });
+
+    function mostrarCarrito() {
+      carritoPanel.innerHTML = `<h5><i class="bi bi-cart-check"></i> Tu carrito</h5>`;
+
+      if (carrito.length === 0) {
+        carritoPanel.innerHTML += `<p class="text-muted mt-2">Tu carrito está vacío.</p>`;
+        return;
+      }
+
+      carrito.forEach((item) => {
+        carritoPanel.innerHTML += `
+        <div class="d-flex justify-content-between align-items-center border-bottom py-1">
+          <span>${item.nombre}</span>
+          <span>${item.precio}</span>
+        </div>
+      `;
+      });
+    }
   </script>
+
 
 </body>
 
