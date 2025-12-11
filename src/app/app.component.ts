@@ -14,7 +14,6 @@ export class AppComponent {
     { nombre: 'Camiseta Azul Navy', descripcion: 'Colección verano', precio: 40000, imagen: 'assets/imgcamiseta4.jpg' },
     { nombre: 'Camiseta Gris Premium', descripcion: 'Tela suave y cómoda', precio: 39000, imagen: 'assets/imgcamiseta5.jpg' },
 
-    // Nuevas
     { nombre: 'Camiseta Blanca K-12', descripcion: 'Diseño exclusivo #007', precio: 55000, imagen: 'assets/imgcamiseta7.jpg' },
     { nombre: 'Camiseta Negra León', descripcion: 'Edición artística #008', precio: 68000, imagen: 'assets/imgcamiseta8.jpg' },
     { nombre: 'Camiseta Gris Rick and Morty', descripcion: 'Colección animada #009', precio: 62000, imagen: 'assets/imgcamiseta9.jpg' },
